@@ -26,34 +26,17 @@ class Model_Admin extends Model
 		return $res;
 	}
 
-	// public function set_datas($message_params)
-	// {	
+	public function confirm()
+	{	
+		$DBUser = "mysql";
+		$DBPass = "";
 
-	// 	$DBUser = "mysql";
-	// 	$DBPass = "";
-	// 	$DB = new mysqli('bjtest', $DBUser, $DBPass,'BJTest');
-	// 	if ($DB->connect_errno) {
-	// 		echo "Connection to Database failed";
-	// 	}
-	// 	$DB->query("
-	// 		INSERT INTO `BJTest`.`messages` (
-	// 			`id`, 
-	// 			`author`, 
-	// 			`creation_time`, 
-	// 			`email`, 
-	// 			`message`, 
-	// 			`AdminCheck`, 
-	// 			`AdminChange`) 
+		$DB = new mysqli('bjtest', $DBUser, $DBPass,'BJTest');
+		if ($DB->connect_errno)
+			echo "Connection to Database failed";
 
-	// 			VALUES 
-	// 			(NULL,
-	// 			'".$message_params["name"]."',
-	// 			CURRENT_TIMESTAMP,
-	// 			'".$message_params["email"]."', 
-	// 			'".$message_params["message"]."', 
-	// 			'NULL', 
-	// 			NULL);
-	// 		");
-		
-	// }
+		$DB_Id = $_POST["DB_Id"]; 
+		$DB->query("UPDATE messages SET AdminCheck=1 WHERE Id=".$DB_Id);
+		// echo();
+	}
 }

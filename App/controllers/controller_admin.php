@@ -14,17 +14,13 @@ class Controller_Admin extends Controller
 		$this->view->generate('view_admin.php', 'view_template.php', $data);
 	}
 
-	// function action_push(){		
-	// 	$this->model->set_datas($_POST);
-	// 	$this->view->generate('view_feedback_push.php', 'view_template.php');
-	// }
 	function action_confirm()
 	{
-		
+		$this->model->confirm();
 	}
 
 	function action_edit()
 	{
-		
+		$this->view->generate('view_edit.php', 'view_template.php', $data);
 	}
 }

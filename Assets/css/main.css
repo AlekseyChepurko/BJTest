@@ -1,3 +1,7 @@
+.author{
+	height: 66px;
+}
+
 .messages{
 	margin-bottom: 20px;
 	display: block;
@@ -13,12 +17,45 @@
 	margin-bottom: 20px;
 	display: block;
     position: relative;
+    height: 100%;
+    min-height: 100%;
+}
+.message_body{
+	 word-wrap: break-word;
 }
 
 .main_btn{
 	width: 100%;
 }
 
+.admin_btn__wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.admin_btn_confirm{
+	color: green;
+	padding-top: 27px;
+	padding-bottom: 27px;;
+}
+textarea{
+	resize: none;
+}
+.admin_btn_edit{
+	color: orange;
+}
+/*.btn{
+	margin: 15px;
+}*/
+.hidden{
+	visibility: hidden;
+}
+
+.alert{
+	margin-bottom: 0px;
+}
 
 footer{
 	width: 100%;

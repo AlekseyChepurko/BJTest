@@ -5,6 +5,7 @@
 			echo
 			(
 		    	'<div class="message col-md-4">
+		    	
 					<h2 class="author">'.$message[author].'</h2>
 					<h3 class="author_email">'.$message[email].'</h3>
 					<h4 class="message_body">'.$message[message].'</h4>
@@ -28,7 +29,7 @@
 			</p>
 
 			<p class="field_name">
-				<input required type="text" class="message form-control" name="message" placeholder="message">
+				<input required type="comment" class="message form-control" name="message" placeholder="message">
 			</p>
 
 			<input type="submit" class="submit__button btn btn-lg btn-primary btn-block" value="Send for moderation">
