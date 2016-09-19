@@ -1,0 +1,26 @@
+.messages{
+	margin-bottom: 20px;
+	display: block;
+    position: relative;
+}
+
+.messages:after{
+	clear: both;
+    content: "";
+    display: block;
+}
+.message{
+	margin-bottom: 20px;
+	display: block;
+    position: relative;
+}
+
+.main_btn{
+	width: 100%;
+}
+
+
+footer{
+	width: 100%;
+	text-align: center;
+}

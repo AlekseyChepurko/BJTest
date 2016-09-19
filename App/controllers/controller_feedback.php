@@ -15,7 +15,7 @@ class Controller_Feedback extends Controller
 	}
 
 	function action_push(){		
-		$this->model->set_datas($_POST);
+		$this->model->set_data($_POST);
 		$this->view->generate('view_feedback_push.php', 'view_template.php');
 	}
 }

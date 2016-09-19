@@ -26,7 +26,7 @@ class Model_Feedback extends Model
 		return $res;
 	}
 
-	public function set_datas($message_params)
+	public function set_data($message_params)
 	{	
 
 		$DBUser = "mysql";
