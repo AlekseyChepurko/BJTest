@@ -10,10 +10,11 @@
 		    	echo('">
 					<h2 class="author">'.$message[author].'</h2>
 					<h3 class="author_email">'.$message[email].'</h3>
-					<form class="message_body" id="message">
-						<textarea required rows="15" class="message form-control" value="
-						">'.$message[message].'</textarea>
-					</form>
+					
+					<textarea required rows="15" class="message_text form-control" name="message">'
+						.$message[message].
+					'</textarea>
+				
 					<h5 class="creation_time">'.$message[creation_time].'</h5>');
 		    	
 		    	if($message[AdminCheck]==0){
@@ -22,11 +23,11 @@
 			    			<a class="btn admin_btn_confirm" DB_Id="'.$message[id].'"> Confirm
 				    			<i class="fa fa-check" ></i>
 				    		</a>
-			    			
-			    			<i class="fa fa-pencil">
-								<input type="submit" form="message" class="btn admin_btn_edit" value="Edit">
-			    			</i>
-				    		
+							
+							<a class="btn admin_btn_edit" DB_Id="'.$message[id].'" value="Edit">Save changes 
+								<i class="fa fa-pencil"></i>
+							</a>
+
 				    		</a>
 							<div class="alert alert-success hidden">
 							  <strong>Success!</strong>
@@ -46,12 +47,30 @@
 <script>
 	$('.admin_btn_confirm').click(function(){
 		$cur = $(this);
+		$cur_id = $(this).attr("DB_Id");
 		$.post({
 			url: "/admin/confirm",
-			data: "DB_Id="+$cur.attr("DB_Id"),
+			data: "DB_Id="+$cur_id,
 			success: function(data){
 				$cur.parent().find(".alert-success").removeClass("hidden");
-				$cur.parent().find(".fa").addClass("hidden");
+				$cur.parent().find(".admin_btn_edit").addClass("hidden");
+				
+			},
+			fail: function(err){
+				console.log(err);
+				$cur.parent().parent().find(".alert-danger").removeClass("hidden");
+			}
+		});
+	});
+
+	$('.admin_btn_edit').click(function(){
+		$cur_id = $(this).attr("DB_Id");
+		$data = $(this).parent().parent().find(".message_text").val();
+		$.post({
+			url: "/admin/edit",
+			data: "message_text="+$data+"&DB_Id="+$cur_id,
+			success: function(data){
+				console.log(data);
 				
 			},
 			fail: function(err){

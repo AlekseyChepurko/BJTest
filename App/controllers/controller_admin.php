@@ -21,6 +21,6 @@ class Controller_Admin extends Controller
 
 	function action_edit()
 	{
-		$this->view->generate('view_edit.php', 'view_template.php', $data);
+		$this->model->edit();
 	}
 }
