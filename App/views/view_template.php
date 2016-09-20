@@ -19,13 +19,47 @@
 		</header>
 
 		<?php include 'App/views/'.$content_view; ?>
+		
+
 
 		<footer>
 			Test task for BJ company. 2016.
 		</footer>
 
 	</div>
+	
+	<div class="preview__wrap hidden">
+		<div class="preview__body">
+			<h2>Message preview</h2>
 
+			<h2 class="message_author"></h2>
+			<h4 class="author_email"></h4>
+			<h3 class="preview_text"></h3>
+			<h4 class="create_date"></h4>
+
+			
+		</div>
+	</div>
+	
+	<script>
+		$(".preview_btn").click(function () {
+			$(".message_author").append($(".nickname").val());
+			$(".author_email").append($(".email").val());
+			$(".preview_text").append($(".message_text").val());
+
+			$(".create_date").append(new Date($.now()));
+			
+			$(".preview__wrap").removeClass("hidden");
+		});
+
+		$(".preview__wrap").click(function(){
+			$(this).addClass("hidden");
+			$(".message_author").empty();
+			$(".author_email").empty();
+			$(".preview_text").empty();
+			$(".create_date").empty();
+		});
+	</script>
 	
 	<!-- Latest compiled and minified bootstrap JS -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

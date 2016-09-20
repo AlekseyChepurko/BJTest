@@ -31,7 +31,7 @@
 			<p class="field_name">
 				<input required type="comment" class="message_text form-control" name="message" placeholder="message">
 			</p>
-
-			<input type="submit" class="submit__button btn btn-lg btn-primary btn-block" value="Send for moderation">
+			<a href="#" class="btn btn-lg btn-success preview_btn">Preview</a>
+			<input type="submit" class="submit__button btn btn-lg btn-primary " value="Send for moderation">
 		</form>	
 	</div>

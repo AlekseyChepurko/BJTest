@@ -14,7 +14,7 @@ class Model_Feedback extends Model
 			echo "Connection to Database failed";
 
 		$res = array();
-		if ($cur = $DB->query("SELECT * FROM messages WHERE AdminCheck='1' ORDER BY creation_time DESC")) {
+		if ($cur = $DB->query("SELECT * FROM messages WHERE AdminCheck='1'")) {
 		    /* assoc_array extracting */
 		    while ($message = $cur->fetch_assoc()) {
 		    	array_push($res, $message);
