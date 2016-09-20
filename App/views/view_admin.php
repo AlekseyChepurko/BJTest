@@ -4,11 +4,15 @@
 		{
 			echo
 			(
-		    	'<div class="message col-md-4 ');
+		    	'<div class="admin message col-md-4 ');
 		    	if($message[AdminCheck]==0)
-		    		echo('unwatched jumbotron');
+		    		echo('unwatched');
 		    	echo('">
-					<h2 class="author">'.$message[author].'</h2>
+					<div class="author_wrap">
+						<h2 class="author">
+							'.$message[author].'
+						</h2>
+					</div>
 					<h3 class="author_email">'.$message[email].'</h3>
 					
 					<textarea required rows="15" class="message_text form-control" name="message">'
@@ -20,11 +24,11 @@
 		    	if($message[AdminCheck]==0){
 		    		echo('
 		    			<div class="admin_btn__wrap">
-			    			<a class="btn admin_btn_confirm" DB_Id="'.$message[id].'"> Confirm
+			    			<a class="btn btn-success admin_btn_confirm" DB_Id="'.$message[id].'"> Confirm
 				    			<i class="fa fa-check" ></i>
 				    		</a>
 							
-							<a class="btn admin_btn_edit" DB_Id="'.$message[id].'" value="Edit">Save changes 
+							<a class="btn admin_btn_edit  btn-warning" DB_Id="'.$message[id].'" value="Edit">Save changes 
 								<i class="fa fa-pencil"></i>
 							</a>
 

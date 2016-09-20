@@ -10,8 +10,9 @@ class Controller_Admin extends Controller
 	
 	function action_index()
 	{
+		$this->view->generate('view_admin_auth.php', 'view_template.php');
 		$data = $this->model->get_data();		
-		$this->view->generate('view_admin.php', 'view_template.php', $data);
+		// $this->view->generate('view_admin.php', 'view_template.php', $data);
 	}
 
 	function action_confirm()

@@ -1,5 +1,12 @@
-.author{
+.author_wrap{
 	height: 66px;
+	/*vertical-align: bottom;*/
+	position: relative;
+}
+.author{
+	position: absolute;
+	bottom: 0;
+	margin: 0;
 }
 
 .messages{
@@ -17,20 +24,21 @@
 	margin-bottom: 20px;
 	display: block;
     position: relative;
-    height: 683px;
+    /*height: 683px;*/
     min-height: 100%;
 }
-
-.message_main{
-	/*border: 2px solid blue;*/
-	/*margin: 2px;*/
-	/*border-style: inset;*/
-	height: 200px;
-	overflow-y: auto; 
+.admin.message{
+	height: 450px;
 }
-
-.message_body{
-	 word-wrap: break-word;
+.unwatched{
+	background-color: gray;
+	border-radius: 10px;
+}
+.unwatched div,.unwatched h3, .unwatched h5{
+	color: white;
+}
+textarea.form-control{
+	height: 200px;
 }
 
 .main_btn{
@@ -44,25 +52,28 @@
   align-content: center;
 }
 
-.admin_btn_confirm{
-	color: green;
+.changed::after{
+	content: "Modified by admin";
+	background-color: gray;
+	color: white;
+	float: right;
+	margin-top: -30px;
+	bottom: 0;
+}
+
+.admin_btn_confirm, .admin_btn_edit{
 	padding-top: 27px;
-	padding-bottom: 27px;;
+	padding-bottom: 27px;
 }
 textarea{
 	resize: none;
 }
-.admin_btn_edit{
-	color: orange;
-}
+
 
 .hidden{
 	visibility: hidden;
 }
 
-.alert{
-	margin-bottom: 0px;
-}
 
 
 .preview__wrap{

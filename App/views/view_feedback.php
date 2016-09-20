@@ -1,16 +1,22 @@
+<!-- <link rel="stylesheet" href="/Assets/css/feedback/style.css"> -->
 <div class="messages">
 	<?php
 		foreach($data as $message)
 		{
 			echo
 			(
-		    	'<div class="message_main message col-md-4">
-		    	
-					<h2 class="author">'.$message[author].'</h2>
+		    	'<div class="message_main message col-md-4');
+			if($message[AdminChange]==1)
+				echo(" changed");
+			echo('">
+		    		<div class="author_wrap">
+						<h2 class="author">
+							'.$message[author].'
+						</h2>
+					</div>
 					<h3 class="author_email">'.$message[email].'</h3>
-					<h4 class="message_body">'.$message[message].'</h4>
+					<textarea readonly class="message_body form-control">'.$message[message].'</textarea>
 					<h5 class="creation_time">'.$message[creation_time].'</h5>
-		    		<p></p>
 				</div>'
 			);
 		}
