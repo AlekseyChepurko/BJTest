@@ -37,6 +37,11 @@
 			<p class="field_name">
 				<input required type="comment" class="message_text form-control" name="message" placeholder="message">
 			</p>
+
+			<p class="image">
+				<input  type="file" accept="image/jpeg, image/png, image/gif" class="image_input" name="img" value="image">
+			</p>
+			
 			<a href="#" class="btn btn-lg btn-success preview_btn">Preview</a>
 			<input type="submit" class="submit__button btn btn-lg btn-primary " value="Send for moderation">
 		</form>	

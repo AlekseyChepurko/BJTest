@@ -24,7 +24,6 @@
 	margin-bottom: 20px;
 	display: block;
     position: relative;
-    /*height: 683px;*/
     min-height: 100%;
 }
 .admin.message{
@@ -36,6 +35,10 @@
 }
 .unwatched div,.unwatched h3, .unwatched h5{
 	color: white;
+}
+
+.message__from{
+	width: 400px;
 }
 textarea.form-control{
 	height: 200px;
