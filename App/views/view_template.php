@@ -31,11 +31,13 @@
 	<div class="preview__wrap hidden">
 		<div class="preview__body">
 			<h2>Message preview</h2>
-
-			<h2 class="message_author"></h2>
-			<h4 class="author_email"></h4>
-			<h3 class="preview_text"></h3>
-			<h4 class="create_date"></h4>
+			<i class="fa fa-times fa-6" aria-hidden="true"></i>
+			<div class="preview__message_body">
+				<h2 class="message_author"></h2>
+				<h4 class="author_email"></h4>
+				<textarea readonly class="preview_text"></textarea>
+				<h5 class="create_date"></h5>
+			</div>
 
 			
 		</div>
@@ -52,13 +54,14 @@
 			$(".preview__wrap").removeClass("hidden");
 		});
 
-		$(".preview__wrap").click(function(){
-			$(this).addClass("hidden");
+		$(".fa-times").click(function(){
+			$(".preview__wrap").addClass("hidden");
 			$(".message_author").empty();
 			$(".author_email").empty();
 			$(".preview_text").empty();
 			$(".create_date").empty();
 		});
+
 	</script>
 	
 	<!-- Latest compiled and minified bootstrap JS -->

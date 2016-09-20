@@ -83,11 +83,33 @@ textarea{
 	border-radius: 15px;
 	width: 600px;
 	height: 300px;
+	padding-left: 10px;
+	padding-right: 10px;
 	z-index: 2;
 	overflow-y: scroll;
 	background-color: white;
 
 }
+
+.fa-times{
+	font-size: xx-large;
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	background-color: red;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.preview__message_body{
+	margin-left: 20px;
+}
+
+.preview_text{
+	width: 450px;
+	height: 100px;
+}
+
 .preview__body::-webkit-scrollbar{
 	display: none;
 }
