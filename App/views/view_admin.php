@@ -53,6 +53,9 @@
 	?>
 </div>
 
+
+<div class="succes_info btn btn-success admin_btn_confirm hidden">Succses</div>
+
 <script>
 	$('.admin_btn_confirm').click(function(){
 		$cur = $(this);
@@ -80,6 +83,10 @@
 			data: "message_text="+$data+"&DB_Id="+$cur_id,
 			success: function(data){
 				console.log(data);
+				$(".succes_info").removeClass("hidden");
+				setTimeout(function(){
+					$(".succes_info").addClass("hidden");
+				},1000);
 				
 			},
 			fail: function(err){
