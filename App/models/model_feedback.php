@@ -31,7 +31,11 @@ class Model_Feedback extends Model
 
 		if (!empty($files['img']['name']))
 		{
-			$file_name = md5($files['img']['name']).".jpg"; // hack to avoid coding problems
+			$exploded_file_name = explode(".",$files['img']['name']);
+			$file_ext = end($exploded_file_name); 
+			
+
+			$file_name = md5($files['img']['name']).".".$file_ext; // hack to avoid coding problems
 				if(!move_uploaded_file($files['img']['tmp_name'], 'imgs/'.$file_name)){
 					throw new Exception("Erorr move file ".$files['img']['name'], 1);
 				}
@@ -45,16 +49,32 @@ class Model_Feedback extends Model
 				unset($tmp_ar);
 
 				if ($img_width>320 || $img_height>240){
-					$tmp_img = new Imagick('http://'.$_SERVER[SERVER_NAME].'/imgs/'.$file_name);
-					if($img_width>320)
-						$tmp_img->adaptiveResizeImage(320,0);
-					if($tmp_img->getimageHeight()>240) // compare with new height
-						$tmp_img->adaptiveResizeImage(0, 240);	
-						
-					$f = 'imgs/'.$file_name;
-					$file = fopen($f, w);
-					if(!fwrite($file,$tmp_img))
-						throw new Exception("Erorr write file ".$files['img']['name'], 1);
+
+					if($file_ext == "gif"){
+						$tmp_img = new Imagick('C:/OpenServer/domains/BJTest/imgs/'.$file_name);
+						$tmp_img = $tmp_img->coalesceImages();
+
+						foreach ($tmp_img as $frame) {
+							if($img_width>320)
+								$frame->adaptiveResizeImage(320,0);
+							if($frame->getimageHeight()>240) // compare with new height
+								$frame->adaptiveResizeImage(0, 240);
+						}
+						$tmp_img = $tmp_img->deconstructImages(); 
+						$tmp_img->writeImages('C:/OpenServer/domains/BJTest/imgs/'.$file_name, true);
+					}
+					else {
+							$tmp_img = new Imagick('C:/OpenServer/domains/BJTest/imgs/'.$file_name);
+							if($img_width>320)
+								$tmp_img->adaptiveResizeImage(320,0);
+							if($tmp_img->getimageHeight()>240) // compare with new height
+								$tmp_img->adaptiveResizeImage(0, 240);	
+								
+							$f = 'imgs/'.$file_name;
+							$file = fopen($f, w);
+							if(!fwrite($file,$tmp_img))
+								throw new Exception("Erorr write file ".$files['img']['name'], 1);
+						}
 				}
 		}
 		else

@@ -46,6 +46,7 @@
 	
 	<script>
 		$(".preview_btn").click(function (e) {
+			e.preventDefault();
 			$(".message_author").append($(".nickname").val());
 			$(".author_email").append($(".email").val());
 			$(".preview_text").append($(".message_text").val());
