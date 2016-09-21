@@ -44,7 +44,7 @@
 				<input  type="file" name="img" accept="image/jpeg, image/png, image/gif" id="image_input" >
 			</p>
 			
-			<a href="" class="btn btn-lg btn-success preview_btn">Preview</a>
+			<a href="#" class="btn btn-lg btn-success preview_btn">Preview</a>
 			<input type="submit" class="submit__button btn btn-lg btn-primary " value="Send for moderation">
 		</form>	
 	</div>

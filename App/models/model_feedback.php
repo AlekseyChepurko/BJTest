@@ -71,9 +71,15 @@ class Model_Feedback extends Model
 							if($frame->getimageHeight()>240) // compare with new height
 								$frame->adaptiveResizeImage(0, 240);
 							}
+						// $tmp_img = $tmp_img->deconstructImages(); 
+						
+						// var_dump($_SERVER['DOCUMENT_ROOT']);
 						
 						$tmp_img->writeImages($_SERVER['DOCUMENT_ROOT'].'/imgs/'.$file_name, true);
-
+						// $f = 'imgs/'.$file_name;
+						// $file = fopen($f, w);
+						// if(!fwrite($file,$tmp_img))
+						// 	throw new Exception("Erorr write file ".$files['img']['name'], 1);
 					}
 				}
 		}
