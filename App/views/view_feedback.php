@@ -41,7 +41,7 @@
 			</p>
 
 			<p class="image">
-				<input  type="file" name="img" accept="image/jpeg, image/png, image/gif" class="image_input" >
+				<input  type="file" name="img" accept="image/jpeg, image/png, image/gif" id="image_input" >
 			</p>
 			
 			<a href="#" class="btn btn-lg btn-success preview_btn">Preview</a>

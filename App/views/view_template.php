@@ -36,6 +36,7 @@
 				<h2 class="message_author"></h2>
 				<h4 class="author_email"></h4>
 				<textarea readonly class="preview_text"></textarea>
+				<img src="" alt="" id="preview_img">
 				<h5 class="create_date"></h5>
 			</div>
 
@@ -44,14 +45,25 @@
 	</div>
 	
 	<script>
-		$(".preview_btn").click(function () {
+		$(".preview_btn").click(function (e) {
 			$(".message_author").append($(".nickname").val());
 			$(".author_email").append($(".email").val());
 			$(".preview_text").append($(".message_text").val());
-
+			
+			if($("#image_input")[0].files[0])
+				{
+					var fReader = new FileReader(); // to avoid fatepath
+					fReader.readAsDataURL($("#image_input")[0].files[0]);
+					fReader.onloadend = function(ev){
+						$("#preview_img").attr("src",ev.target.result);
+					};
+				}
+			var img_path = $("#image_input").val();
+			// console.log(img_path);
 			$(".create_date").append(new Date($.now()));
 			
 			$(".preview__wrap").removeClass("hidden");
+
 		});
 
 		$(".fa-times").click(function(){
