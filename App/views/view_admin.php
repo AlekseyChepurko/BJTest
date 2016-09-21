@@ -19,10 +19,11 @@
 					
 					<textarea required rows="15" class="message_text form-control" name="message">'
 						.$message[message].
-					'</textarea>
-				
-					<img src="/imgs/'.$message[img].'" alt="">
-					<h5 class="creation_time">'.$message[creation_time].'</h5>
+					'</textarea>');
+
+					if ($message[img] != "NULL")
+						echo ('<img src="/imgs/'.$message[img].'" alt="">');
+					echo('<h5 class="creation_time">'.$message[creation_time].'</h5>
 					');
 		    	
 		    	if($message[AdminCheck]==0){

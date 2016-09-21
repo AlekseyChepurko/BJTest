@@ -15,9 +15,10 @@
 						</h2>
 					</div>
 					<h3 class="author_email">'.$message[email].'</h3>
-					<textarea readonly class="message_body form-control">'.$message[message].'</textarea>
-					<img src="/imgs/'.$message[img].'" alt="">
-					<h5 class="creation_time">'.$message[creation_time].'</h5>
+					<textarea readonly class="message_body form-control">'.$message[message].'</textarea>');
+					if ($message[img] != "NULL")
+						echo ('<img src="/imgs/'.$message[img].'" alt="">');
+					echo('<h5 class="creation_time">'.$message[creation_time].'</h5>
 				</div>'
 			);
 		}
