@@ -16,6 +16,7 @@
 					</div>
 					<h3 class="author_email">'.$message[email].'</h3>
 					<textarea readonly class="message_body form-control">'.$message[message].'</textarea>
+					<img src="/imgs/'.$message[img].'" alt="">
 					<h5 class="creation_time">'.$message[creation_time].'</h5>
 				</div>'
 			);
@@ -25,7 +26,7 @@
 
 <div class="create__wrap">
 		<h2 class="vreate__message">Leave you message and our admin will think about its publication</h2>
-		<form action="/feedback/push" class="message__from" method="post">
+		<form action="/feedback/push" class="message__from" method="post" enctype="multipart/form-data">
 			<p class="field_name ">
 				<input required type="text" class="nickname form-control" placeholder="Name" name="name">
 			</p>
@@ -39,7 +40,7 @@
 			</p>
 
 			<p class="image">
-				<input  type="file" accept="image/jpeg, image/png, image/gif" class="image_input" name="img" value="image">
+				<input  type="file" name="img" accept="image/jpeg, image/png, image/gif" class="image_input" >
 			</p>
 			
 			<a href="#" class="btn btn-lg btn-success preview_btn">Preview</a>

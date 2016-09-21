@@ -7,6 +7,8 @@
 		    	'<div class="admin message col-md-4 ');
 		    	if($message[AdminCheck]==0)
 		    		echo('unwatched');
+		    	else
+		    		echo('watched');
 		    	echo('">
 					<div class="author_wrap">
 						<h2 class="author">
@@ -19,7 +21,9 @@
 						.$message[message].
 					'</textarea>
 				
-					<h5 class="creation_time">'.$message[creation_time].'</h5>');
+					<img src="/imgs/'.$message[img].'" alt="">
+					<h5 class="creation_time">'.$message[creation_time].'</h5>
+					');
 		    	
 		    	if($message[AdminCheck]==0){
 		    		echo('

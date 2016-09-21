@@ -15,7 +15,8 @@ class Controller_Feedback extends Controller
 	}
 
 	function action_push(){		
-		$this->model->set_data($_POST);
+		// var_dump($_FILES);
+		$this->model->set_data($_POST, $_FILES);
 		$this->view->generate('view_feedback_push.php', 'view_template.php');
 	}
 }

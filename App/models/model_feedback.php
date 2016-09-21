@@ -26,8 +26,29 @@ class Model_Feedback extends Model
 		return $res;
 	}
 
-	public function set_data($message_params)
+	public function set_data($message_params, $files)
 	{	
+		
+		$file_name = md5($files['img']['name']).".jpg"; // hack to avoid coding problems
+		if(!move_uploaded_file($files['img']['tmp_name'], 'imgs/'.$file_name)){
+			throw new Exception("Erorr move file ".$files['img']['name'], 1);
+		}
+		
+		$tmp_ar = getimagesize("imgs/".$file_name);
+		$tmp_ar = explode('"',$tmp_ar[3]); // $tmp_ar[3] - data adbout width and height in string
+
+		$img_width = $tmp_ar[1];
+		$img_height = $tmp_ar[3];
+		
+		if ($img_width>320 || $img_height>240){
+			$tmp_img = new Imagick('C:/OpenServer/domains/BJTest/imgs/'.$file_name);
+			$tmp_img->adaptiveResizeImage(320, 240);
+			
+			$f = 'imgs/'.$file_name;
+			$file = fopen($f, w);
+			if(!fwrite($file,$tmp_img))
+				throw new Exception("Erorr write file ".$files['img']['name'], 1);
+		}
 
 		$DBUser = "mysql";
 		$DBPass = "";
@@ -43,7 +64,8 @@ class Model_Feedback extends Model
 				`email`, 
 				`message`, 
 				`AdminCheck`, 
-				`AdminChange`) 
+				`AdminChange`,
+				`img`) 
 
 				VALUES 
 				(NULL,
@@ -51,9 +73,11 @@ class Model_Feedback extends Model
 				CURRENT_TIMESTAMP,
 				'".$message_params["email"]."', 
 				'".$message_params["message"]."', 
-				'NULL', 
-				NULL);
+				NULL, 
+				NULL,
+				'".$file_name."');
 			");
+		
 		
 	}
 }

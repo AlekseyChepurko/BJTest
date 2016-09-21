@@ -27,14 +27,18 @@
     min-height: 100%;
 }
 .admin.message{
-	height: 450px;
+	height: 720px;
 }
 .unwatched{
 	background-color: gray;
 	border-radius: 10px;
 }
-.unwatched div,.unwatched h3, .unwatched h5{
+.unwatched div,.unwatched h3, .unwatched h5,.watched div,.watched h3, .watched h5{
 	color: white;
+}
+.watched{
+	background-color: #449d44;
+	border-radius: 10px;
 }
 
 .message__from{
@@ -42,6 +46,14 @@
 }
 textarea.form-control{
 	height: 200px;
+}
+
+img{
+	border-radius: 5px;
+	display: block;
+	margin: auto;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .main_btn{
