@@ -33,8 +33,10 @@ class Model_Feedback extends Model
 		$file_ext = end($exploded_file_name); 
 		$file_name = "NULL";
 
-		if ($file_ext == "gif" || $file_ext == "jpg" || $file_ext == "png")
-			if (!empty($files['img']['name']))
+		if (!empty($files['img']['name']))
+			$finfo = finfo_open(FILEINFO_MIME_TYPE);
+			$mime = finfo_file($finfo, $files['img']['tmp_name']);
+			if ($mime == "image/gif" || $mime == "image/jpeg" || $mime == "image/png")
 			{
 
 				$file_name = md5($files['img']['name']).".".$file_ext; // hack to avoid coding problems
