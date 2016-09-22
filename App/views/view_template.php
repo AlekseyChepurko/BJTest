@@ -57,10 +57,12 @@
 					fReader.readAsDataURL($("#image_input")[0].files[0]);
 					fReader.onloadend = function(ev){
 						$("#preview_img").attr("src",ev.target.result);
+						console.log(ev.type);
 					};
 				}
 			var img_path = $("#image_input").val();
 			// console.log(img_path);
+
 			$(".create_date").append(new Date($.now()));
 			
 			$(".preview__wrap").removeClass("hidden");

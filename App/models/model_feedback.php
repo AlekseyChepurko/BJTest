@@ -34,7 +34,10 @@ class Model_Feedback extends Model
 		
 		if (!empty($files['img']['name']))
 		{
-			if($file_ext == "gif" || $file_ext == "jpg"|| $file_ext == "png")
+			$finfo = finfo_open(FILEINFO_MIME_TYPE);
+			$mime = finfo_file($finfo, $files['img']['tmp_name']);
+			var_dump($mime);
+			if($mime == "image/gif" || $mime == "image/jpeg" || $mime == "image/png")
 
 				$file_name = md5($files['img']['name']).".".$file_ext; // hack to avoid coding problems
 					if(!move_uploaded_file($files['img']['tmp_name'], 'imgs/'.$file_name)){
