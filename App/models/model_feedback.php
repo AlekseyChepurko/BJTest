@@ -101,13 +101,13 @@ class Model_Feedback extends Model
 
 				VALUES 
 				(NULL,
-				'".$message_params["name"]."',
+				'".mysqli_real_escape_string($DB,$message_params["name"])."',
 				CURRENT_TIMESTAMP,
-				'".$message_params["email"]."', 
-				'".$message_params["message"]."', 
+				'".mysqli_real_escape_string($DB,$message_params["email"])."', 
+				'".mysqli_real_escape_string($DB,$message_params["message"])."', 
 				NULL, 
 				NULL,
-				'".$file_name."');
+				'".mysqli_real_escape_string($DB,$file_name)."');
 			");
 		
 		
