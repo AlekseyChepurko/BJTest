@@ -33,7 +33,7 @@ class Model_Feedback extends Model
 		$file_ext = end($exploded_file_name); 
 		$file_name = "NULL";
 
-		if (!empty($files['img']['name']))
+		if (!empty($files['img']['name'])){
 			$finfo = finfo_open(FILEINFO_MIME_TYPE);
 			$mime = finfo_file($finfo, $files['img']['tmp_name']);
 			if ($mime == "image/gif" || $mime == "image/jpeg" || $mime == "image/png")
@@ -82,7 +82,7 @@ class Model_Feedback extends Model
 						}
 					}
 			}
-
+		}
 		$DBUser = "cm92579_mysql";
 		$DBPass = "1234";
 
@@ -102,13 +102,13 @@ class Model_Feedback extends Model
 
 				VALUES 
 				(NULL,
-				'".$message_params["name"]."',
+				'".mysqli_real_escape_string($DB,$message_params["name"])."',
 				CURRENT_TIMESTAMP,
-				'".$message_params["email"]."', 
-				'".$message_params["message"]."', 
+				'".mysqli_real_escape_string($DB,$message_params["email"])."', 
+				'".mysqli_real_escape_string($DB,$message_params["message"])."', 
 				NULL, 
 				NULL,
-				'".$file_name."');
+				'".mysqli_real_escape_string($DB,$file_name)."');
 			");
 		
 		
