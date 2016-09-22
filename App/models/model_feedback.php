@@ -36,7 +36,7 @@ class Model_Feedback extends Model
 		{
 			$finfo = finfo_open(FILEINFO_MIME_TYPE);
 			$mime = finfo_file($finfo, $files['img']['tmp_name']);
-			var_dump($mime);
+
 			if($mime == "image/gif" || $mime == "image/jpeg" || $mime == "image/png")
 
 				$file_name = md5($files['img']['name']).".".$file_ext; // hack to avoid coding problems
